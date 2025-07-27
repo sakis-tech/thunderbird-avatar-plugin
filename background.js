@@ -26,6 +26,9 @@ class EnhancedAvatarCardManager {
       enableGoogleFavicon: true
     };
     
+    // Add avatarManager property to fix undefined reference
+    this.avatarManager = this;
+    
     this.init();
   }
 
@@ -33,10 +36,20 @@ class EnhancedAvatarCardManager {
     console.log('Enhanced Avatar Card Manager: Initializing...');
     
     try {
+      // Ensure avatarManager property is properly initialized
+      if (!this.avatarManager) {
+        this.avatarManager = this;
+      }
+      
       // Load settings from storage if available
       const stored = await browser.storage.local.get('avatarSettings');
       if (stored.avatarSettings) {
         this.settings = { ...this.settings, ...stored.avatarSettings };
+      }
+      
+      // Ensure avatarManager.settings is accessible
+      if (this.avatarManager && !this.avatarManager.settings) {
+        this.avatarManager.settings = this.settings;
       }
       
       // Set up message listeners
@@ -250,6 +263,12 @@ class EnhancedAvatarCardManager {
 
   async updateSettings(newSettings) {
     this.settings = { ...this.settings, ...newSettings };
+    
+    // Sync with avatarManager property if it exists
+    if (this.avatarManager && this.avatarManager !== this) {
+      this.avatarManager.settings = this.settings;
+    }
+    
     await browser.storage.local.set({ avatarSettings: this.settings });
     return this.settings;
   }
@@ -260,10 +279,13 @@ class EnhancedAvatarCardManager {
   }
 
   getCacheStats() {
+    // Safe access to settings with fallback
+    const settings = this.settings || this.avatarManager?.settings || {};
+    
     return {
       size: this.cache.size,
-      maxSize: this.settings.maxCacheSize,
-      settings: this.settings
+      maxSize: settings.maxCacheSize || 200,
+      settings: settings
     };
   }
 
