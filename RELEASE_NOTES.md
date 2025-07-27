@@ -156,7 +156,7 @@ We welcome contributions! See our [Contributing Guide](CONTRIBUTING.md) for:
 ## 📞 Support
 
 ### Getting Help
-- **GitHub Issues**: [Report bugs and request features](https://github.com/sakis/thunderbird-avatar-plugin/issues)
+- **GitHub Issues**: [Report bugs and request features](https://github.com/sakis-tech/thunderbird-avatar-plugin/issues)
 - **Documentation**: [Full setup guide](README.md)
 - **Email**: Technical support for installation issues
 
