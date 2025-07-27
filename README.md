@@ -18,7 +18,7 @@ A professional business avatar card extension for Thunderbird that displays inte
 ## 📥 Installation
 
 ### Method 1: Manual Installation (Recommended)
-1. Download the latest release from [Releases](https://github.com/sakis/thunderbird-avatar-plugin/releases)
+1. Download the latest release from [Releases](https://github.com/sakis-tech/thunderbird-avatar-plugin/releases)
 2. Open Thunderbird
 3. Go to **Tools** → **Add-ons and Themes**
 4. Click the gear icon ⚙️ → **Install Add-on From File**
@@ -28,7 +28,7 @@ A professional business avatar card extension for Thunderbird that displays inte
 ### Method 2: Development Installation
 1. Clone this repository:
    ```bash
-   git clone https://github.com/sakis/thunderbird-avatar-plugin.git
+   git clone https://github.com/sakis-tech/thunderbird-avatar-plugin.git
    cd thunderbird-avatar-plugin
    ```
 2. Open Thunderbird
@@ -86,7 +86,7 @@ thunderbird-avatar-plugin/
 ### Building from Source
 ```bash
 # Clone repository
-git clone https://github.com/sakis/thunderbird-avatar-plugin.git
+git clone https://github.com/sakis-tech/thunderbird-avatar-plugin.git
 cd thunderbird-avatar-plugin
 
 # Install in Thunderbird for testing
