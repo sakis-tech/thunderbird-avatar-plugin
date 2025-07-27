@@ -1,14 +1,14 @@
 {
   "manifest_version": 2,
-  "name": "Avatar Card View",
+  "name": "Avatar Card List",
   "version": "1.1.0",
   "description": "High-performance business avatar cards with intelligent caching, company favicon detection, logo APIs, and professional initials fallback for Thunderbird",
   "author": "Avatar Card View Team",
-  "homepage_url": "https://github.com/avatar-card-view/thunderbird-extension",
+  "homepage_url": "https://github.com/sakis-tech/thunderbird-avatar-plugin",
   
   "browser_specific_settings": {
     "gecko": {
-      "id": "avatar-card-view@addon.thunderbird.net",
+      "id": "avatar-card-list@addon.thunderbird.net",
       "strict_min_version": "78.0"
     }
   },
