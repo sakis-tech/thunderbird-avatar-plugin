@@ -1,0 +1,510 @@
+/**
+ * Avatar Card View - Modern SaaS-Inspired Styles
+ * High-performance CSS with smooth animations and professional design
+ */
+
+/* Avatar Card Container - Mailspring-Inspired Design */
+.avatar-card {
+  position: absolute !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 12px !important;
+  min-width: 80px !important;
+  max-width: 120px !important;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%) !important;
+  border: 1px solid rgba(226, 232, 240, 0.6) !important;
+  border-radius: 16px !important;
+  box-shadow: 
+    0 8px 32px -8px rgba(0, 0, 0, 0.12),
+    0 6px 16px -6px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.7) inset,
+    0 1px 0 0 rgba(255, 255, 255, 0.9) inset !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  opacity: 0 !important;
+  transform: translateY(-12px) scale(0.9) !important;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  pointer-events: none !important;
+  z-index: 999999 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+  will-change: transform, opacity !important;
+}
+
+/* Show state with enhanced animations */
+.avatar-card.visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  pointer-events: auto !important;
+}
+
+.avatar-card.loaded {
+  animation: slideInBounce 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+@keyframes slideInBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.8);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translateY(2px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Enhanced hover effects with Mailspring-style elevation */
+.avatar-card:hover {
+  transform: translateY(-4px) scale(1.03) !important;
+  box-shadow: 
+    0 16px 40px -8px rgba(0, 0, 0, 0.15),
+    0 8px 16px -4px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(59, 130, 246, 0.2) inset,
+    0 1px 0 0 rgba(255, 255, 255, 0.95) inset !important;
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  backdrop-filter: blur(20px) saturate(200%) !important;
+}
+
+.avatar-card:hover .avatar-image {
+  transform: scale(1.08) rotate(1deg) !important;
+  border-color: rgba(59, 130, 246, 0.8) !important;
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.2) !important;
+}
+
+/* Avatar Image */
+.avatar-image {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  border: 2px solid rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  object-fit: cover !important;
+  transition: all 0.2s ease !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  display: block !important;
+}
+
+.avatar-card:hover .avatar-image {
+  transform: scale(1.05);
+  border-color: rgba(59, 130, 246, 0.6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Email Label */
+.avatar-email {
+  margin-top: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #374151;
+  text-align: center;
+  line-height: 1.3;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+.avatar-card:hover .avatar-email {
+  color: #1f2937;
+}
+
+/* Feedback message */
+.avatar-feedback {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #10b981;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+  z-index: 1;
+  animation: feedbackSlide 2s ease;
+}
+
+.avatar-feedback::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: #10b981;
+}
+
+/* Animations */
+@keyframes feedbackSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-5px);
+  }
+  10%, 90% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .avatar-card {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    border-color: rgba(75, 85, 99, 0.8);
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.3),
+      0 2px 4px -1px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  }
+  
+  .avatar-card:hover {
+    border-color: rgba(96, 165, 250, 0.4);
+    box-shadow: 
+      0 8px 25px -5px rgba(0, 0, 0, 0.4),
+      0 4px 6px -2px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+  }
+  
+  .avatar-email {
+    color: #d1d5db;
+  }
+  
+  .avatar-card:hover .avatar-email {
+    color: #f3f4f6;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .avatar-card {
+    border: 2px solid #000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .avatar-email {
+    color: #000;
+    font-weight: 600;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .avatar-card,
+  .avatar-image,
+  .avatar-feedback {
+    transition: none;
+    animation: none;
+  }
+  
+  .avatar-card:hover {
+    transform: none;
+  }
+  
+  .avatar-card:hover .avatar-image {
+    transform: none;
+  }
+}
+
+/* Position variants */
+.avatar-card[data-position="top-left"] {
+  transform-origin: bottom right;
+}
+
+.avatar-card[data-position="top-right"] {
+  transform-origin: bottom left;
+}
+
+.avatar-card[data-position="bottom-left"] {
+  transform-origin: top right;
+}
+
+.avatar-card[data-position="bottom-right"] {
+  transform-origin: top left;
+}
+
+/* Size variants */
+.avatar-card.size-small {
+  padding: 8px;
+  min-width: 60px;
+}
+
+.avatar-card.size-small .avatar-image {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+.avatar-card.size-small .avatar-email {
+  font-size: 10px;
+  margin-top: 6px;
+}
+
+.avatar-card.size-large {
+  padding: 16px;
+  min-width: 100px;
+}
+
+.avatar-card.size-large .avatar-image {
+  width: 64px !important;
+  height: 64px !important;
+}
+
+.avatar-card.size-large .avatar-email {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+/* Enhanced loading states with skeleton animations */
+.avatar-card.loading .avatar-image {
+  background: linear-gradient(90deg, #f8fafc 25%, #e2e8f0 50%, #f8fafc 75%) !important;
+  background-size: 200% 100% !important;
+  animation: shimmerPulse 1.8s ease-in-out infinite !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+}
+
+.avatar-card.slow-loading {
+  animation: slowLoadingPulse 2s ease-in-out infinite !important;
+}
+
+.avatar-card.slow-loading .avatar-image {
+  background: linear-gradient(90deg, #fef3c7 25%, #fbbf24 50%, #fef3c7 75%) !important;
+  animation: shimmerGold 2s ease-in-out infinite !important;
+}
+
+@keyframes shimmerPulse {
+  0%, 100% {
+    background-position: -200% 0;
+    opacity: 0.6;
+  }
+  50% {
+    background-position: 200% 0;
+    opacity: 0.8;
+  }
+}
+
+@keyframes shimmerGold {
+  0%, 100% {
+    background-position: -200% 0;
+    opacity: 0.7;
+  }
+  50% {
+    background-position: 200% 0;
+    opacity: 0.9;
+  }
+}
+
+@keyframes slowLoadingPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Error state */
+.avatar-card.error .avatar-image {
+  background: #fef2f2;
+  border-color: #fca5a5;
+}
+
+/* Performance optimizations */
+.avatar-card {
+  will-change: transform, opacity;
+  contain: layout style paint;
+}
+
+.avatar-image {
+  will-change: transform;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .avatar-card {
+    padding: 8px;
+    min-width: 60px;
+  }
+  
+  .avatar-image {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  
+  .avatar-email {
+    font-size: 10px;
+    margin-top: 6px;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .avatar-card {
+    border-width: 0.5px;
+  }
+}
+
+/* Inline Avatar Styles for Message List Integration */
+.avatar-card.inline-avatar {
+  min-width: 32px !important;
+  max-width: 32px !important;
+  padding: 4px !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  z-index: 9999 !important;
+}
+
+.avatar-card.inline-avatar .avatar-image {
+  width: 24px !important;
+  height: 24px !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+}
+
+.avatar-card.inline-avatar:hover {
+  transform: scale(1.1) !important;
+  z-index: 10000 !important;
+}
+
+.avatar-card.inline-avatar:hover .avatar-image {
+  width: 28px !important;
+  height: 28px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.avatar-card.inline-position {
+  position: absolute !important;
+  margin: 0 !important;
+}
+
+/* Enhanced micro-interactions */
+.avatar-card {
+  cursor: pointer !important;
+  user-select: none !important;
+}
+
+.avatar-card:active {
+  transform: translateY(-2px) scale(0.98) !important;
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.avatar-card.inline-avatar:active {
+  transform: scale(1.05) !important;
+}
+
+/* Responsive avatar sizing system */
+@media (max-resolution: 1dppx) {
+  .avatar-card .avatar-image {
+    image-rendering: -webkit-optimize-contrast !important;
+    image-rendering: crisp-edges !important;
+  }
+}
+
+@media (min-resolution: 2dppx) {
+  .avatar-card {
+    border-width: 0.5px !important;
+  }
+  
+  .avatar-card .avatar-image {
+    image-rendering: -webkit-optimize-contrast !important;
+  }
+}
+
+@media (min-resolution: 3dppx) {
+  .avatar-card {
+    border-width: 0.33px !important;
+  }
+}
+
+/* Accessibility Features */
+.avatar-card {
+  /* Focus management for keyboard navigation */
+  outline: none !important;
+}
+
+.avatar-card:focus {
+  outline: 2px solid #2563eb !important;
+  outline-offset: 2px !important;
+  box-shadow: 
+    0 16px 40px -8px rgba(0, 0, 0, 0.15),
+    0 8px 16px -4px rgba(0, 0, 0, 0.08),
+    0 0 0 2px #2563eb,
+    0 0 0 4px rgba(37, 99, 235, 0.2) !important;
+}
+
+.avatar-card:focus-visible {
+  outline: 2px solid #2563eb !important;
+  outline-offset: 2px !important;
+}
+
+/* High contrast accessibility */
+@media (prefers-contrast: high) {
+  .avatar-card {
+    border: 2px solid #000000 !important;
+    background: #ffffff !important;
+  }
+  
+  .avatar-card:hover {
+    border-color: #0066cc !important;
+    background: #f0f8ff !important;
+  }
+  
+  .avatar-card:focus {
+    outline: 3px solid #ff0000 !important;
+    outline-offset: 2px !important;
+  }
+  
+  .avatar-email {
+    color: #000000 !important;
+    font-weight: 700 !important;
+  }
+}
+
+/* Screen reader support */
+.avatar-card .sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Keyboard navigation hints */
+.avatar-card[tabindex]:focus::after {
+  content: "Press Enter to copy email" !important;
+  position: absolute !important;
+  top: -35px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background: #1f2937 !important;
+  color: #ffffff !important;
+  padding: 6px 10px !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  z-index: 1000000 !important;
+  pointer-events: none !important;
+}
+
+/* Print styles */
+@media print {
+  .avatar-card {
+    display: none !important;
+  }
+}

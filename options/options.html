@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avatar Card View - Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Avatar Card View Settings</h1>
+      <p class="subtitle">Customize your email avatar experience</p>
+    </header>
+
+    <main class="settings-grid">
+      <!-- Avatar Sources -->
+      <section class="setting-group">
+        <h2>Business Avatar Sources</h2>
+        
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="enableFavicon" checked>
+            <span class="checkmark"></span>
+            Company Favicon Detection
+          </label>
+          <p class="setting-description">Detect and use company favicons from email domains (highest priority)</p>
+        </div>
+
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="enableLogoAPI" checked>
+            <span class="checkmark"></span>
+            Company Logo APIs
+          </label>
+          <p class="setting-description">Use Clearbit and other logo services for company branding</p>
+        </div>
+
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="enableGoogleFavicon" checked>
+            <span class="checkmark"></span>
+            Google Favicon Service
+          </label>
+          <p class="setting-description">Fallback to Google's favicon service for domain icons</p>
+        </div>
+
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="enableGravatar">
+            <span class="checkmark"></span>
+            Legacy Gravatar Support
+          </label>
+          <p class="setting-description">Enable traditional Gravatar lookup (lower priority)</p>
+        </div>
+      </section>
+
+      <!-- Display Settings -->
+      <section class="setting-group">
+        <h2>Display</h2>
+        
+        <div class="setting-item">
+          <label for="avatarSize" class="setting-label">Avatar Size</label>
+          <div class="input-group">
+            <input type="range" id="avatarSize" min="32" max="128" value="64" step="8">
+            <span class="value-display" id="avatarSizeValue">64px</span>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <label for="cardPosition" class="setting-label">Card Position</label>
+          <select id="cardPosition" class="select-input">
+            <option value="top-right">Top Right</option>
+            <option value="top-left">Top Left</option>
+            <option value="bottom-right">Bottom Right</option>
+            <option value="bottom-left">Bottom Left</option>
+          </select>
+        </div>
+
+        <div class="setting-item">
+          <label for="animationDuration" class="setting-label">Animation Speed</label>
+          <div class="input-group">
+            <input type="range" id="animationDuration" min="0" max="500" value="200" step="50">
+            <span class="value-display" id="animationDurationValue">200ms</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cache Settings -->
+      <section class="setting-group">
+        <h2>Performance</h2>
+        
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="enableLocalCache" checked>
+            <span class="checkmark"></span>
+            Enable local caching
+          </label>
+          <p class="setting-description">Cache avatars locally for better performance</p>
+        </div>
+
+        <div class="setting-item">
+          <label for="maxCacheSize" class="setting-label">Max Cache Size</label>
+          <div class="input-group">
+            <input type="range" id="maxCacheSize" min="50" max="500" value="100" step="25">
+            <span class="value-display" id="maxCacheSizeValue">100 avatars</span>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <label for="cacheExpiry" class="setting-label">Cache Duration</label>
+          <select id="cacheExpiry" class="select-input">
+            <option value="3600000">1 Hour</option>
+            <option value="21600000">6 Hours</option>
+            <option value="86400000" selected>24 Hours</option>
+            <option value="604800000">7 Days</option>
+            <option value="2592000000">30 Days</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Actions -->
+      <section class="setting-group">
+        <h2>Maintenance</h2>
+        
+        <div class="setting-item">
+          <button id="clearCache" class="action-button secondary">
+            Clear Avatar Cache
+          </button>
+          <p class="setting-description">Remove all cached avatars and free up space</p>
+        </div>
+
+        <div class="setting-item">
+          <button id="resetSettings" class="action-button secondary">
+            Reset to Defaults
+          </button>
+          <p class="setting-description">Restore all settings to their default values</p>
+        </div>
+      </section>
+
+      <!-- Business Features -->
+      <section class="setting-group">
+        <h2>Business Features</h2>
+        
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="businessColorScheme" checked>
+            <span class="checkmark"></span>
+            Professional Color Schemes
+          </label>
+          <p class="setting-description">Use business-friendly colors for initials fallback</p>
+        </div>
+
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="enhancedInitials" checked>
+            <span class="checkmark"></span>
+            Enhanced Initials Generation
+          </label>
+          <p class="setting-description">Smart initials from firstname.lastname format</p>
+        </div>
+      </section>
+
+      <!-- Statistics -->
+      <section class="setting-group">
+        <h2>Statistics</h2>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-value" id="cacheSize">-</span>
+            <span class="stat-label">Cached Avatars</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value" id="hitRate">-</span>
+            <span class="stat-label">Success Rate</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value" id="faviconCount">-</span>
+            <span class="stat-label">Favicon Avatars</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value" id="businessCount">-</span>
+            <span class="stat-label">Business Initials</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="actions">
+      <button id="saveSettings" class="action-button primary">Save Settings</button>
+    </div>
+
+    <!-- Toast notifications -->
+    <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

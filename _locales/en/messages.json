@@ -1,0 +1,10 @@
+{
+  "extensionName": {
+    "message": "Avatar Card View",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "High-performance business avatar cards with intelligent caching, company favicon detection, logo APIs, and professional initials fallback for Thunderbird",
+    "description": "Description of the extension"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "manifest_version": 2,
+  "name": "Avatar Card View",
+  "version": "1.1.0",
+  "description": "High-performance business avatar cards with intelligent caching, company favicon detection, logo APIs, and professional initials fallback for Thunderbird",
+  "author": "Avatar Card View Team",
+  "homepage_url": "https://github.com/avatar-card-view/thunderbird-extension",
+  
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "avatar-card-view@addon.thunderbird.net",
+      "strict_min_version": "78.0"
+    }
+  },
+
+  "permissions": [
+    "messagesRead",
+    "accountsRead", 
+    "addressBooks",
+    "storage",
+    "unlimitedStorage",
+    "alarms",
+    "tabs",
+    "activeTab",
+    "https://*.clearbit.com/*",
+    "https://logo.clearbit.com/*",
+    "https://api.brandfetch.io/*",
+    "https://*.gravatar.com/*",
+    "https://*/*favicon*",
+    "https://*/*apple-touch-icon*",
+    "https://www.google.com/s2/favicons*",
+    "<all_urls>"
+  ],
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/content-script.js", "content/thunderbird-integration.js"],
+      "css": ["content/avatar-cards.css"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+
+  "web_accessible_resources": [
+    "images/*.png",
+    "images/*.jpg",
+    "images/*.svg",
+    "content/*.css"
+  ],
+
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": false
+  },
+
+  "icons": {
+    "16": "icons/icon-16.svg",
+    "32": "icons/icon-32.svg",
+    "48": "icons/icon-48.svg",
+    "128": "icons/icon-128.svg"
+  }
+}
